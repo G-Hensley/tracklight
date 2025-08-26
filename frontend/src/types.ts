@@ -2,19 +2,9 @@ type Id = string & { readonly brand: unique symbol };
 type ISODate = string;
 type Tag = string;
 
-interface Priority { 
-  'low': string; 
-  'medium': string;
-  'high': string;
-};
+type Priority = 'low' | 'medium' | 'high';
 
-interface StatusColumnName {
-  'Backlog': string;
-  'To Do': string;
-  'In Progress': string;
-  'Review': string;
-  'Done': string;
-};
+type StatusColumnName = 'Backlog' | 'In Progress' | 'Review' | 'Done';
 
 interface Project {
   id: Id;
