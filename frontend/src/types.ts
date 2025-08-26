@@ -31,7 +31,7 @@ interface Ticket {
   dueDate?: ISODate;
   tags: Tag[];
   createdAt: ISODate;
-  updatedAt: ISODate;
+  updatedAt?: ISODate;
 };
 
 interface BoardState {

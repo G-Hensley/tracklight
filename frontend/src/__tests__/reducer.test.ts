@@ -74,7 +74,7 @@ test('UPDATE_TICKET action updates an existing ticket', () => {
 })
 
 test("MOVE_TICKET changes column (and optional index) correctly", () => {
-  // arrange: add two tickets in col-1
+
   const s1 = boardReducer(seed, {
     type: "ADD_TICKET",
     payload: { title: "A", columnId: id("col-1"), priority: "low" }
@@ -85,7 +85,6 @@ test("MOVE_TICKET changes column (and optional index) correctly", () => {
   });
   const a = s2.tickets.find(t => t.title === "A")!;
 
-  // act: move A to col-2 at index 0
   const s3 = boardReducer(s2, {
     type: "MOVE_TICKET",
     payload: { id: a.id, toColumnId: id("col-2"), toIndex: 0 }
@@ -94,7 +93,6 @@ test("MOVE_TICKET changes column (and optional index) correctly", () => {
   const movedA = s3.tickets.find(t => t.id === a.id)!;
   expect(movedA.columnId).toBe(id("col-2"));
 
-  // immutability sanity
   expect(s3).not.toBe(s2);
 });
 
@@ -110,7 +108,6 @@ test("DELETE_TICKET removes the ticket", () => {
   expect(s2.tickets).toHaveLength(0);
 });
 
-// Optional: column management
 test("ADD_COLUMN appends at the end with correct position", () => {
   const s1 = boardReducer(seed, { type: "ADD_COLUMN", payload: { name: "Review", position: undefined } });
   expect(s1.columns).toHaveLength(3);
