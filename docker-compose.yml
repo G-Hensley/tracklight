@@ -1,7 +1,8 @@
-version: '3.8'
 services:
   postgres:
-    image: postgres:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
     environment:
       - POSTGRES_USER=tracklight_user
       - POSTGRES_PASSWORD=tracklight_pass
