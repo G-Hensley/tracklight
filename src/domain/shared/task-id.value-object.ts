@@ -10,8 +10,8 @@ export class TaskId {
     return new TaskId(v4());
   }
 
-  public static fromString(id: string): TaskId {
-    if (!TaskId.isValidUUID(id)) {
+  public static fromString(id: string | null | undefined): TaskId {
+    if (!id || !TaskId.isValidUUID(id.toLowerCase())) {
       throw new Error(`Invalid TaskId: ${id}`);
     }
     return new TaskId(id);
@@ -30,7 +30,7 @@ export class TaskId {
   }
 
   public equals(other: TaskId): boolean {
-    return this.id === other.id;
+    return this.id.toLowerCase() === other.id.toLowerCase();
   }
 
 }
