@@ -15,7 +15,7 @@ describe("UserId Value Object", () => {
       const validUUID = "123e4567-e89b-12d3-a456-426614174000";
       const userId = UserId.fromString(validUUID);
       expect(userId.value).toBe(validUUID);
-    })
+    });
   });
 
   describe("equals()", () => {
