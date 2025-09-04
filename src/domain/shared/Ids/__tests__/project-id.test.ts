@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ProjectId } from "../Ids/project-id.value-object";
+import { ProjectId } from "../project-id.value-object";
 
 describe('ProjectId Value Object', () => {
 

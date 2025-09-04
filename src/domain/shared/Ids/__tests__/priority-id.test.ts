@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { PriorityId } from "../Ids/priority-id.value-object";
+import { PriorityId } from "../priority-id.value-object";
 
 describe('PriorityId Value Object', () => {
 
