@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { TaskId } from "../task-id.value-object";
+import { TaskId } from "../Ids/task-id.value-object";
 
 describe('TaskId Value Object', () => {
 
