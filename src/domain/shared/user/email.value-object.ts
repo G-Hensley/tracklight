@@ -19,11 +19,28 @@ export class Email {
   }
 
   private static isValidEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return email.length <= 254 && emailRegex.test(email);
+    // More comprehensive email validation
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+    
+    // Additional checks for edge cases
+    if (email.length > 254) return false;
+    if (email.includes('..')) return false;
+    if (email.startsWith('.') || email.endsWith('.')) return false;
+    if (email.includes('@.') || email.includes('.@')) return false;
+    
+    const parts = email.split('@');
+    if (parts.length !== 2) return false;
+    
+    const [localPart, domainPart] = parts;
+    if (!localPart || !domainPart) return false;
+    if (localPart.length > 64) return false;
+    if (domainPart.startsWith('-') || domainPart.endsWith('-')) return false;
+    if (!domainPart.includes('.')) return false;
+
+    return emailRegex.test(email);
   }
 
   get value(): string { return this.email; }
   toString(): string { return this.email; }
-  equals(other: Email): boolean { return this.email.toLowerCase() === other.email.toLowerCase(); }
+  equals(other: Email): boolean { return this.email === other.email; }
 }
