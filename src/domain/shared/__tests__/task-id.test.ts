@@ -43,8 +43,8 @@ describe('TaskId Value Object', () => {
     });
 
     it('should handle null or undefined', () => {
-      expect(() => TaskId.fromString(null)).toThrowError('Invalid TaskId: null');
-      expect(() => TaskId.fromString(undefined)).toThrowError('Invalid TaskId: undefined');
+      expect(() => TaskId.fromString(null)).toThrowError('TaskId cannot be null or undefined');
+      expect(() => TaskId.fromString(undefined)).toThrowError('TaskId cannot be null or undefined');
     });
 
     it('should handle case sensitivity correctly', () => {
