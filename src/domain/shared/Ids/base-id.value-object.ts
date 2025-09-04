@@ -23,6 +23,6 @@ export abstract class BaseId {
   }
 
   equals<T extends BaseId>(other: T): boolean {
-    return this.value === other.value && this.constructor === other.constructor;
+    return this.value.toLowerCase() === other.value.toLowerCase() && this.constructor === other.constructor;
   }
 }
