@@ -7,7 +7,7 @@ describe("UserId Value Object", () => {
     it("should generate a valid UUID", () => {
       const userId = UserId.create();
       expect(UserId.isValidUUID(userId.value)).toBe(true);
-    })
+    });
   });
 
   describe("fromString()", () => {
