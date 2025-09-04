@@ -1,2 +1,21 @@
 import { describe, expect, it } from "vitest";
 import { UserId } from "../Ids/user-id.value-object";
+
+describe("UserId Value Object", () => {
+
+  describe("create()", () => {
+    it("should generate a valid UUID", () => {
+      const userId = UserId.create();
+      expect(UserId.isValidUUID(userId.value)).toBe(true);
+    })
+  });
+
+  describe("fromString()", () => {
+    it("should accept valid UUID format", () => {
+      const validUUID = "123e4567-e89b-12d3-a456-426614174000";
+      const userId = UserId.fromString(validUUID);
+      expect(userId.value).toBe(validUUID);
+    })
+  });
+
+});
