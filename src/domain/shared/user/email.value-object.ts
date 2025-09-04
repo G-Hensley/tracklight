@@ -5,7 +5,7 @@ export class Email {
 
   static create(email: string | null | undefined): Email {
     // Validate email for null, undefined, or empty string
-    if (!email || email.trim() === '' || email === null || email === undefined) {
+    if (!email || email.trim() === '') {
       throw new Error('Email cannot be empty');
     }
 
